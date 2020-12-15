@@ -28,57 +28,194 @@ q6 = Question.create(
     category: "Physical Exam"
 )
 
-br0 = Answer.create(
-    text: "No bruises",
+q7 = Question.create(
+    text: "How many bruises are there on padded areas of the body (e.g., buttocks, face, genitalia, earlobe, neck, upper lip)?",
+    category: "Physical Exam",
+    required_yes_id: q6.id
+    )
+    
+    br0 = Answer.create(
+        text: "No bruises",
+        point_value: 0
+    )
+    QuestionAnswer.create(
+                question_id: q7.id,
+                answer_id: br0.id
+            )
+    br1 = Answer.create(
+        text: "1-2 bruises",
+        point_value: 1
+    )
+    QuestionAnswer.create(
+                question_id: q7.id,
+                answer_id: br1.id
+            )
+    br2 = Answer.create(
+        text: "3-4 bruises",
+        point_value: 2
+    )
+    QuestionAnswer.create(
+                question_id: q7.id,
+                answer_id: br2.id
+            )
+    br3 = Answer.create(
+        text: "5 or more bruises",
+        point_value: 3
+    )
+    QuestionAnswer.create(
+                question_id: q7.id,
+                answer_id: br3.id
+            )
+
+q8 = Question.create(
+    text: "Are bruises sharply delineated?",
+    category: "Physical Exam",
+    required_yes_id: q6.id
+)
+
+q9 = Question.create(
+    text: "Are bruises of varying colors (indicates bruises of varying ages)?",
+    category: "Physical Exam",
+    required_yes_id: q6.id
+)
+
+q10 = Question.create(
+    text: "Is there evidence of burn injury that is not consistent with accidental spills or splashes?",
+    category: "Physical Exam"
+)
+
+q11 = Question.create(
+    text: "Are burns in a stocking or glove pattern?",
+    category: "Physical Exam",
+    required_yes_id: q10.id
+)
+
+q12 = Question.create(
+    text: "Are these burns bilateral?",
+    category: "Physical Exam",
+    required_yes_id: q10.id
+)
+
+q13 = Question.create(
+    text: "Are retinal hemorrhages found on exam?",
+    category: "Physical Exam"
+)
+
+q14 = Question.create(
+    text: "Are there other signs of neglect?",
+    category: "Physical Exam"
+)
+
+q15 = Question.create(
+    text: "Poor hygiene (including dental)",
+    category: "Physical Exam",
+    required_yes_id: q14.id
+)
+
+q16 = Question.create(
+    text: "Evidence of under- or malnourishment",
+    category: "Physical Exam",
+    required_yes_id: q14.id
+)
+
+q17 = Question.create(
+    text: "Witnessed aggressive familial interactions",
+    category: "Physical Exam",
+    required_yes_id: q14.id
+)
+
+q18 = Question.create(
+    text: "Poor parental health and wellness?",
+    category: "Physical Exam",
+    required_yes_id: q14.id
+)
+
+# Is there evidence of injury on imaging? (Y/N) - 0 points (if no, skip rest of radiology questions)
+
+q19 = Question.create(
+    text: "Is there evidence of injury on imaging?",
+    category: "Radiological Findings"
+)
+
+yes0 = Answer.create(
+    text: "Yes",
+    point_value: 0
+)
+no0 = Answer.create(
+    text: "No",
     point_value: 0
 )
 QuestionAnswer.create(
-            question_id: q6.id,
-            answer_id: br0.id
-        )
-br1 = Answer.create(
-    text: "1-2 bruises",
-    point_value: 1
+    question_id: q19.id,
+    answer_id: yes0.id
 )
 QuestionAnswer.create(
-            question_id: q6.id,
-            answer_id: br1.id
-        )
-br2 = Answer.create(
-    text: "3-4 bruises",
+    question_id: q19.id,
+    answer_id: no0.id
+)
+
+
+q20 = Question.create(
+    text: "Does head CT show subdural hematoma, cerebral edema, diffuse axonal injury or hypoxic ischemic encephalopathy?",
+    category: "Radiological Findings"
+)
+
+q21 = Question.create(
+    text: "On imaging are there any fractures present?",
+    category: "Radiological Findings"
+)
+
+q22 = Question.create(
+    text: "On X-ray, are there metaphyseal fractures, rib fractures, scapular fractures, or fractures of the outer end of the clavicle?",
+    category: "Radiological Findings",
+    required_yes_id: q21.id
+)
+
+yes2 = Answer.create(
+    text: "Yes",
     point_value: 2
 )
-QuestionAnswer.create(
-            question_id: q6.id,
-            answer_id: br2.id
-        )
-br3 = Answer.create(
-    text: "5 or more bruises",
-    point_value: 3
+no2 = Answer.create(
+    text: "No",
+    point_value: 0
 )
 QuestionAnswer.create(
-            question_id: q6.id,
-            answer_id: br3.id
-        )
-
-q6 = Question.create(
-    text: "Are there bruises on padded areas of the body (e.g., buttocks, face, genitalia, earlobe, neck, upper lip)?",
-    category: "Physical Exam"
+    question_id: q22.id,
+    answer_id: yes2.id
 )
-# If bruises, are bruises sharply delineated? (Y/N)
-# If bruises, are bruises of varying colors (indicates bruises of varying ages)? (Y/N)
+QuestionAnswer.create(
+    question_id: q22.id,
+    answer_id: no2.id
+)
 
+q23 = Question.create(
+    text: "On X-ray, are there mid-clavicular fractures, linear skull bone fractures, long bone fractures?",
+    category: "Radiological Findings",
+    required_yes_id: q21.id
+)
 
-# Is there evidence of burn injury that is not consistent with accidental spills or splashes? (Y/N)
-# If burns, are burns in a stocking or glove pattern? (Y/N or NA)
-# If burns, are these burns bilateral? (Y/N or NA)
+q24 = Question.create(
+    text: "Are the fractures bilateral?",
+    category: "Radiological Findings",
+    required_yes_id: q21.id
+)
 
-# Are retinal hemorrhages found on exam? (Y/N)
-# Are there other signs of neglect?
-# Poor hygiene (including dental) (Y/N)
-# Evidence of under- or malnourishment (Y/N)
-# Witnessed aggressive familial interactions
-# Poor parental health and wellness? (Y/N)
+q25 = Question.create(
+    text: "are there multiple fractures at various stages of healing?",
+    category: "Radiological Findings",
+    required_yes_id: q21.id
+)
+
+q26 = Question.create(
+    text: "On abdominal imaging is there bowel or pancreatic injury?",
+    category: "Radiological Findings"
+)
+
+q27 = Question.create(
+    text: "On abdominal imaging is there evidence of delayed presentation (e.g., peritonitis or sepsis)?",
+    category: "Radiological Findings",
+    required_yes_id: q26.id
+)
 
 
 yes1 = Answer.create(
@@ -90,7 +227,7 @@ no = Answer.create(
     point_value: 0
 )
 
-yes_or_nos = [q1,q2,q3,q4,q5]
+yes_or_nos = [q1,q2,q3,q4,q5,q6,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q20,q21,q23,q24,q25,q26,q27]
 
 def create_yes_or_nos(qs, yes1, no) 
     qs.each do |q|
@@ -107,29 +244,4 @@ end
 create_yes_or_nos(yes_or_nos, yes1, no)
 
 
-# Radiology
-q6 = Question.create(
-    text: "Is there a history of “doctor shopping”?",
-    category: "Radiological Findings"
-)
-# Is there evidence of injury on imaging? (Y/N) - 0 points (if no, skip rest of radiology questions)
-# Does head CT show subdural hematoma, cerebral edema, diffuse axonal injury or hypoxic ischemic encephalopathy? (Y/N or NA)
-
-
-#  not sure how to organize this below
-
-# On imaging are there any fractures present?
-
-# On X-ray, are there metaphyseal fractures, rib fractures, scapular fractures, or fractures of the outer end of the clavicle? (Y- 2pts/N)
-# On X-ray, are there mid-clavicular fractures, linear skull bone fractures, long bone fractures? (Y - 1pt / N)
-
-# these two if's are to be shown if either question above is yes
-
-# If fractures, are the fractures bilateral? (Y/N)
-# If fractures, are there multiple fractures at various stages of healing? (Y/N)
-
-
-
-# On abdominal imaging is there bowel or pancreatic injury? (Y/N or NA)
-# On abdominal imaging is there evidence of delayed presentation (e.g., peritonitis or sepsis)? (Y/N or NA)
 

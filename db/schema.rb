@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_12_15_023150) do
   create_table "questions", force: :cascade do |t|
     t.string "text"
     t.string "category"
+    t.integer "required_yes_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
