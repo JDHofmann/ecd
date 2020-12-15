@@ -1,3 +1,7 @@
+QuestionAnswer.destroy_all
+Question.destroy_all 
+Answer.destroy_all 
+
 q1 = Question.create(
     text: "If the child is presenting with an injury, was there an apparent or obvious delay in seeking treatment that is out of proportion to severity of symptoms?",
     category: "History"
