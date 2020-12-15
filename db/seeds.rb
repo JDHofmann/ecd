@@ -1,6 +1,8 @@
+UserAnswer.destroy_all
 QuestionAnswer.destroy_all
 Question.destroy_all 
 Answer.destroy_all 
+User.destroy_all
 
 q1 = Question.create(
     text: "If the child is presenting with an injury, was there an apparent or obvious delay in seeking treatment that is out of proportion to severity of symptoms?",
@@ -183,7 +185,7 @@ no2 = Answer.create(
     text: "No",
     point_value: 0
 )
-QuestionAnswer.create(
+qa_one = QuestionAnswer.create(
     question_id: q22.id,
     answer_id: yes2.id
 )
@@ -247,5 +249,10 @@ def create_yes_or_nos(qs, yes1, no)
 end
 create_yes_or_nos(yes_or_nos, yes1, no)
 
+user_one = User.create(score: 5)
 
+ua_one = UserAnswer.create(
+    user_id: user_one.id,
+    question_answer_id: qa_one.id
+)
 
